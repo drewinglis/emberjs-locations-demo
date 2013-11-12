@@ -1,0 +1,16 @@
+<h2>Locations</h2>
+
+<table>
+  <thead>
+    <th>latitude</th>
+    <th>longitude</th>
+  </thead>
+  <tbody>
+    {{#each location in controller}}
+    <tr>
+      <td>{{ location.latitude }}</td>
+      <td>{{ location.longitude }}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
