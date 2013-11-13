@@ -1,5 +1,4 @@
 var Location = require('../models/location');
-var LocationController = require('../controllers/location_controller');
 
 var LocationRoute = Ember.Route.extend({
   model: function() {
