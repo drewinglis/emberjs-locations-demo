@@ -25,23 +25,15 @@ var MapView = Ember.View.extend({
   }.observes('controller.[]').on('didInsertElement'),
 
   sync: function() {
-    var locations = this.get('controller').get('content');
+    var locations = this.get('controller');
     var map = this.get('map');
 
     if (!map || !locations) {
       return;
     }
 
-    // TODO: don't create duplicate markers for a given object
-    // TODO: destroy markers if locations are destroyed
     locations.forEach(function (loc) {
-      new google.maps.Marker({
-        map: map,
-        position: new google.maps.LatLng(
-          loc.get('latitude'),
-          loc.get('longitude')
-        )
-      });
+      loc.setupMarker(map);
     }, this);
   }
 });
